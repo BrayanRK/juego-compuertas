@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Compuertas Lógicas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h1>Juego de Compuertas Lógicas</h1>
+        <div class="login-form">
+            <h2>Registro de Jugador</h2>
+            <input type="text" id="player-name" placeholder="Nombre" required>
+            <input type="email" id="player-email" placeholder="Correo electrónico" required>
+            <button id="register-btn">Unirse al juego</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="waiting-container">
+        <h1>Esperando al administrador...</h1>
+        <div class="player-info">
+            <p id="waiting-player-name"></p>
+            <p id="waiting-player-email"></p>
+        </div>
+        <div class="players-list">
+            <h2>Jugadores conectados:</h2>
+            <ul id="connected-players"></ul>
+        </div>
+    </div>
+
+    <div class="container hidden" id="game-container">
+        <div class="game-header">
+            <div class="player-stats">
+                <span id="current-player"></span>
+                <span id="current-score">Puntaje: 0</span>
+            </div>
+            <div class="game-info">
+                <span id="current-level">Nivel: 1</span>
+                <span id="timer">Tiempo: 10:00</span>
+            </div>
+        </div>
+
+        <div class="level-container">
+            <div class="level-progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="level-description" id="level-description">
+                <!-- Descripción del nivel se insertará aquí -->
+            </div>
+            <div class="logic-gates-container">
+                <div class="inputs" id="inputs-container">
+                    <!-- Entradas se generarán dinámicamente -->
+                </div>
+                <div class="gates" id="gates-container">
+                    <!-- Compuertas disponibles se generarán dinámicamente -->
+                </div>
+                <div class="output" id="output-container">
+                    <!-- Salida se generará dinámicamente -->
+                </div>
+            </div>
+            <div class="level-controls">
+                <button id="check-solution">Verificar solución</button>
+                <button id="next-level" class="hidden">Siguiente nivel</button>
+            </div>
+        </div>
+
+        <div class="motivational-message hidden" id="motivational-message">
+            <!-- Mensajes motivacionales se insertarán aquí -->
+        </div>
+    </div>
+
+    <div class="container hidden" id="game-over-container">
+        <h1>Juego Terminado</h1>
+        <div class="final-stats">
+            <p id="final-player-name"></p>
+            <p id="final-score">Puntaje final: 0</p>
+            <p id="final-levels">Niveles completados: 0</p>
+            <p id="final-time">Tiempo total: 00:00</p>
+        </div>
+        <p>Revisa tu correo electrónico para ver tus resultados.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

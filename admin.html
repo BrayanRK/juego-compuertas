@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Juego de Compuertas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Panel de Administración</h1>
+        
+        <div class="admin-section game-controls">
+            <h2>Control del Juego</h2>
+            <div class="control-buttons">
+                <button id="start-game">Iniciar Juego</button>
+                <button id="end-game" disabled>Finalizar Juego</button>
+                <button id="reset-game">Reiniciar Juego</button>
+            </div>
+            <div class="timer-control">
+                <label for="game-time">Tiempo del juego (minutos):</label>
+                <input type="number" id="game-time" min="1" max="60" value="10">
+                <button id="update-time">Actualizar tiempo</button>
+            </div>
+            <div class="game-status">
+                <p>Estado: <span id="game-state">No iniciado</span></p>
+                <p>Tiempo restante: <span id="remaining-time">00:00</span></p>
+            </div>
+        </div>
+
+        <div class="admin-section players-list">
+            <h2>Jugadores Conectados</h2>
+            <div class="search-player">
+                <input type="text" id="search-player" placeholder="Buscar jugador...">
+            </div>
+            <table id="players-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Puntaje</th>
+                        <th>Nivel</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="players-table-body">
+                    <!-- Jugadores se insertarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="admin-section level-control">
+            <h2>Control de Niveles</h2>
+            <div class="level-buttons">
+                <button id="next-level-all">Avanzar todos al siguiente nivel</button>
+                <button id="prev-level-all">Retroceder todos al nivel anterior</button>
+            </div>
+            <div class="current-level-info">
+                <p>Nivel actual para todos: <span id="current-global-level">1</span></p>
+            </div>
+        </div>
+
+        <div class="admin-section game-stats">
+            <h2>Estadísticas del Juego</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Jugadores conectados</h3>
+                    <p id="total-players">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Puntaje promedio</h3>
+                    <p id="average-score">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Nivel promedio</h3>
+                    <p id="average-level">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+/* Estilos generales */
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc3f7;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --light-text: #fff;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --warning-color: #ff9800;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Formulario de login */
+.login-form {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.login-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Pantalla de espera */
+.waiting-container {
+    justify-content: center;
+}
+
+.player-info {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.players-list {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+}
+
+.players-list ul {
+    list-style-type: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.players-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Contenedor del juego */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.player-stats, .game-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.level-container {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.level-progress {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.level-description {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.logic-gates-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+
+.inputs, .gates, .output {
+    flex: 1;
+    padding: 15px;
+    border: 2px dashed #ddd;
+    border-radius: var(--border-radius);
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gate {
+    padding: 10px 15px;
+    margin: 5px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.gate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-node, .output-node {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.input-node {
+    background: var(--success-color);
+}
+
+.output-node {
+    background: var(--secondary-color);
+}
+
+.connected {
+    border: 3px solid var(--accent-color);
+}
+
+.level-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.motivational-message {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 20px;
+    width: 100%;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pantalla de fin de juego */
+.game-over-container {
+    justify-content: center;
+    text-align: center;
+}
+
+.final-stats {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 20px 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.final-stats p {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+/* Estilos del panel de administración */
+.admin-section {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timer-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timer-control input {
+    padding: 8px;
+    width: 60px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+.game-status {
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: var(--border-radius);
+}
+
+.players-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.players-list th, .players-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.players-list th {
+    background: var(--primary-color);
+    color: white;
+}
+
+.players-list tr:hover {
+    background: #f5f5f5;
+}
+
+.search-player {
+    margin-bottom: 15px;
+}
+
+.search-player input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+.level-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stat-box {
+    flex: 1;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.stat-box h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .logic-gates-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .inputs, .gates, .output {
+        margin: 10px 0;
+    }
+    
+    .level-controls {
+        flex-direction: column;
+    }
+    
+    .control-buttons, .level-buttons {
+        flex-direction: column;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+    }
+    
+    .timer-control {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
